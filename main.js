@@ -5,6 +5,7 @@
      * when the Maps library is loaded.
      */
     function LocatorPlus(configuration) {
+
       const locator = this;
 
       locator.locations = configuration.locations || [];
