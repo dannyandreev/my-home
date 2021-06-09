@@ -1,3 +1,24 @@
+const CONFIGURATION = { "capabilities": {}, "locations": [{
+  "title": "Light House",
+  "address1": "126 Jordan St",
+  "address2": "Santa Cruz, CA 95060, USA",
+  "amenities": [{
+      "utilities": [{"included": true,"description": ""}],
+      "wifi": [{"included": true,"description": "400MBs"}],
+      "cleaning": [{"included": true,"description": ""}],
+      "washer-drier": [{"included": true,"description": ""}],
+      "insurance": [{"included": true,"description": "theft, distaster, accident"}],
+      "parking": [{"included": true,"description": "On-Street"}],
+  }],
+  "coords": { "lat": 36.97663937789158, "lng": -122.03377977294909 },
+  "placeId": "ChIJ586bwS1AjoARBMu5ozDwS0E" }],
+  "mapOptions": {},
+  "mapsApiKey": "AIzaSyAqEIWhLwHZVz-cjQcspvsphqFrLA4Exmo"
+};
+    function initMap() {
+      new LocatorPlus(CONFIGURATION);
+    }
+
 'use strict';
 
     /**
@@ -82,7 +103,7 @@
         for (let i = 0; i < locations.length; i++) {
           locations[i].index = i;
         }
-        sectionNameEl.textContent = `All locations (${locations.length})`;
+        //sectionNameEl.textContent = `All locations (${locations.length})`;
         const resultItemContext = { locations: locations };
         resultsContainerEl.innerHTML = itemsTemplate(resultItemContext);
         for (let item of resultsContainerEl.children) {

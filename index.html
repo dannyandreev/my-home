@@ -7,119 +7,8 @@
   <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
   <script src="https://www.gstatic.com/external_hosted/handlebars/v4.7.6/handlebars.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-  <style>
-    html,
-    body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-    }
-
-    #map-container {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      font-family: "Roboto", sans-serif;
-      box-sizing: border-box;
-    }
-
-    #map-container button {
-      background: none;
-      color: inherit;
-      border: none;
-      padding: 0;
-      font: inherit;
-      font-size: inherit;
-      cursor: pointer;
-    }
-
-    #map {
-      position: absolute;
-      left: 22em;
-      top: 0;
-      right: 0;
-      bottom: 0;
-    }
-
-    #locations-panel {
-      position: absolute;
-      left: 0;
-      width: 22em;
-      top: 0;
-      bottom: 0;
-      overflow-y: auto;
-      background: white;
-      padding: 0.5em;
-      box-sizing: border-box;
-    }
-
-    @media only screen and (max-width: 876px) {
-      #map {
-        left: 0;
-        bottom: 50%;
-      }
-
-      #locations-panel {
-        top: 50%;
-        right: 0;
-        width: unset;
-      }
-    }
-
-    #locations-panel-list .section-name {
-      font-weight: 500;
-      font-size: 0.9em;
-      margin: 1.8em 0 1em 1.5em;
-    }
-
-    #locations-panel-list .location-result {
-      position: relative;
-      padding: 0.8em 3.5em 0.8em 1.4em;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-      cursor: pointer;
-    }
-
-    #locations-panel-list .location-result:first-of-type {
-      border-top: 1px solid rgba(0, 0, 0, 0.12);
-    }
-
-    #locations-panel-list .location-result:last-of-type {
-      border-bottom: none;
-    }
-
-    #locations-panel-list .location-result.selected {
-      outline: 2px solid #4285f4;
-    }
-
-    #locations-panel-list button.select-location {
-      margin-bottom: 0.6em;
-    }
-
-    #locations-panel-list .location-result h2.name {
-      font-size: 1em;
-      font-weight: 500;
-      margin: 0;
-    }
-
-    #locations-panel-list .location-result .address {
-      font-size: 0.9em;
-      margin-bottom: 0.5em;
-    }
-
-    #location-results-list {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-    }
-  </style>
+  <link href="styles.css" rel="stylesheet">
   <script src='./main.js'> </script>
-  <script>
-    const CONFIGURATION = { "capabilities": {}, "locations": [{ "title": "126 Jordan St", "address1": "126 Jordan St", "address2": "Santa Cruz, CA 95060, USA", "coords": { "lat": 36.97663937789158, "lng": -122.03377977294909 }, "placeId": "ChIJ586bwS1AjoARBMu5ozDwS0E" }], "mapOptions": {}, "mapsApiKey": "AIzaSyAqEIWhLwHZVz-cjQcspvsphqFrLA4Exmo" };
-
-    function initMap() {
-      new LocatorPlus(CONFIGURATION);
-    }
-  </script>
   <script id="locator-result-items-tmpl" type="text/x-handlebars-template">
       {{#each locations}}
         <li class="location-result" data-location-index="{{index}}">
@@ -132,24 +21,51 @@
     </script>
 </head>
 
-<body>
-  <div id="map-container">
-    <div id="locations-panel">
-      <div id="locations-panel-list">
-        <div class="section-name" id="location-results-section-name">
-          All locations
+  <header class="row">
+    <div class="headerBar contents">
+      <div class="column flexLeft">
+        <div class="titleText">
+          My Home
         </div>
-        <div class="results">
-          <ul id="location-results-list"></ul>
+        <div class="flexRight">
+          <div class="tab active" data-view="new-entry">
+            View Home
+          </div>
+          <div class="tab" data-view="view-entries">
+            Profile
+          </div>
+          <div class="tab" data-view="edit-entry">
+            Write Review
+          </div>
+          <div class="tab" data-view="edit-entry">
+            Housemate CV
+          </div>
         </div>
       </div>
     </div>
-    <div id="map"></div>
+  </header>
+<body>
+
+  <div id="map-container">
+    <div id="locations-panel">
+      <div id="locations-panel-list">
+        <div class="results">
+          <ul id="location-results-list"></ul>
+        </div>
+        <!-- <div class="section-name" id="location-results-section-name">
+        </div> -->
+      </div>
+    </div>
+    <div id="map">
+
+    </div>
   </div>
 
   <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqEIWhLwHZVz-cjQcspvsphqFrLA4Exmo&callback=initMap&libraries=places&channel=GMPSB_locatorplus_v2_c"
     async defer></script>
 </body>
-
+<div>
+  Bottom
+</div>
 </html>
