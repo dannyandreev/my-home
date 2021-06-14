@@ -1,3 +1,3 @@
-# driving-game
+# My Home
 
-An HTML, CSS, and JavaScript driving game.
+An HTML, CSS, and JavaScript Landing page for my rental property
