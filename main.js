@@ -1,114 +1,153 @@
-'use strict';
+var bedroomshtml = document.getElementById('bedrooms')
+var bedrooms = house.rooms
 
-    /**
-     * Defines an instance of the Locator+ solution, to be instantiated
-     * when the Maps library is loaded.
-     */
-    function LocatorPlus(configuration) {
+var amenitieshtml = document.getElementById('amenities')
+var amenities = house.amenities
 
-      const locator = this;
+var ruleshtml = document.getElementById('rules')
+var rules = house.rules
 
-      locator.locations = configuration.locations || [];
-      locator.capabilities = configuration.capabilities || {};
+var bedroomAttributeshtml = document.getElementById('bedroom-attributes')
+var bedroomAttributesArray = [];
 
-      const mapEl = document.getElementById('map');
-      locator.panelListEl = document.getElementById('locations-panel-list');
-      const sectionNameEl =
-        document.getElementById('location-results-section-name');
-      const resultsContainerEl = document.getElementById('location-results-list');
 
-      const itemsTemplate = Handlebars.compile(
-        document.getElementById('locator-result-items-tmpl').innerHTML);
 
-      locator.selectedLocationIdx = null;
-      locator.userCountry = null;
+for (bedroom in house.rooms){
+  bedroomAttributesArray.push(house.rooms[bedroom].attributes)
+}
 
-      // Initialize the map -------------------------------------------------------
-      const mapOptions = configuration.mapOptions;
-      locator.map = new google.maps.Map(mapEl, {
-        fullscreenControl: mapOptions.fullscreenControl,
-        zoomControl: mapOptions.zoomControl,
-        streetViewControl: mapOptions.streetViewControl,
-        mapTypeControl: mapOptions.mapTypeControl,
-        mapTypeControlOptions: {
-          position: google.maps.ControlPosition.TOP_RIGHT,
-        },
-      });
+var attributes = bedroomAttributesArray[1]
 
-      // Store selection.
-      const selectResultItem = function (locationIdx, panToMarker) {
-        locator.selectedLocationIdx = locationIdx;
-        for (let locationElem of resultsContainerEl.children) {
-          locationElem.classList.remove('selected');
-          if (getResultIndex(locationElem) === locator.selectedLocationIdx) {
-            locationElem.classList.add('selected');
-          }
-        }
-        if (panToMarker && (locationIdx != null)) {
-          locator.map.panTo(locator.locations[locationIdx].coords);
-        }
-      };
+bedroomshtml.addEventListener("click", handleClick)
 
-      // Create a marker for each location.
-      const markers = locator.locations.map(function (location, index) {
-        const marker = new google.maps.Marker({
-          position: location.coords,
-          map: locator.map,
-          title: location.title,
-        });
-        marker.addListener('click', function () {
-          selectResultItem(index, false);
-        });
-        return marker;
-      });
 
-      // Fit map to marker bounds.
-      locator.updateBounds = function () {
-        const bounds = new google.maps.LatLngBounds();
-        for (let i = 0; i < markers.length; i++) {
-          bounds.extend(markers[i].getPosition());
-        }
-        locator.map.fitBounds(bounds);
-      };
-      locator.updateBounds();
+for(room in bedrooms) {
+  bedroomshtml.appendChild(createBedroom(room))
+}
 
-      // Render the results list --------------------------------------------------
-      const getResultIndex = function (elem) {
-        return parseInt(elem.getAttribute('data-location-index'));
-      };
+for(amenitie in amenities) {
+  amenitieshtml.appendChild(createAttribute(amenities, amenitie))
+}
 
-      locator.renderResultsList = function () {
-        let locations = locator.locations.slice();
-        for (let i = 0; i < locations.length; i++) {
-          locations[i].index = i;
-        }
-        sectionNameEl.textContent = `All locations (${locations.length})`;
-        const resultItemContext = { locations: locations };
-        resultsContainerEl.innerHTML = itemsTemplate(resultItemContext);
-        for (let item of resultsContainerEl.children) {
-          const resultIndex = getResultIndex(item);
-          if (resultIndex === locator.selectedLocationIdx) {
-            item.classList.add('selected');
-          }
+for(rule in rules) {
+  ruleshtml.appendChild(createAttribute(rules, rule))
+}
 
-          const resultSelectionHandler = function () {
-            selectResultItem(resultIndex, true);
-          };
-
-          // Clicking anywhere on the item selects this location.
-          // Additionally, create a button element to make this behavior
-          // accessible under tab navigation.
-          item.addEventListener('click', resultSelectionHandler);
-          item.querySelector('.select-location')
-            .addEventListener('click', function (e) {
-              resultSelectionHandler();
-              e.stopPropagation();
-            });
-        }
-      };
-
-      // Optional capability initialization --------------------------------------
-
-      // Initial render of results -----------------------------------------------
-      locator.renderResultsList();
+for(attribute in bedroomAttributesArray[1]) {
+      bedroomAttributeshtml.appendChild(createAttribute(bedroomAttributesArray[1], attribute))
     }
+
+function handleClick(event) {
+  var button = document.getElementById(event.target.id)
+  var buttons = document.getElementsByClassName("button")
+
+  console.log(buttons)
+
+  if(button.className === "button available") {
+    for (var i = 0; i < buttons.length; i++) {
+      if(buttons[i].className === "button available active") {
+        buttons[i].className = "button available"
+      }
+    }
+    button.className = "button available active"
+
+    var bedroomNum = 0;
+
+
+    for(room in house.rooms) {
+
+      if(event.target.id === house.rooms[room].id) {
+        break;
+      }
+      bedroomNum++;
+    }
+
+    while (bedroomAttributeshtml.firstChild) {
+        bedroomAttributeshtml.removeChild(bedroomAttributeshtml.firstChild);
+    }
+
+
+    for(attribute in bedroomAttributesArray[bedroomNum]) {
+      bedroomAttributeshtml.appendChild(createAttribute(bedroomAttributesArray[bedroomNum], attribute))
+    }
+  }
+  console.log()
+}
+
+function createBedroom(room){
+  var newBedroom = document.createElement('div')
+  newBedroom.className = "flexAndWrap sansSerif"
+
+  var newBedroomTextContainer = document.createElement('div')
+  newBedroomTextContainer.className = "center"
+
+  var  newBedroomText = document.createElement('div')
+  newBedroomText.className = "font-weight-medium"
+  newBedroomText.id = "bedroom"+bedrooms[room].number
+  newBedroomText.textContent = bedrooms[room].name
+
+  var newBedroomButtonContainer = document.createElement('div')
+  newBedroomButtonContainer.className="button-container center"
+
+  var newBedroomButton = document.createElement('button')
+  newBedroomButton.id = bedrooms[room].id
+
+  if(bedrooms[room].dateAvailable){
+    newBedroomButton.className="button available"
+    newBedroomButton.textContent = "Available " + bedrooms[room].dateAvailable
+  } else {
+    newBedroomButton.className="button"
+    newBedroomButton.textContent = "Not Available"
+  }
+
+  if(bedrooms[room].display === "active"){
+    newBedroomButton.className += " active"
+  }
+
+  newBedroomButtonContainer.appendChild(newBedroomButton)
+  newBedroomTextContainer.appendChild(newBedroomText)
+
+  newBedroom.appendChild(newBedroomTextContainer)
+  newBedroom.appendChild(newBedroomButtonContainer)
+
+  return newBedroom
+}
+
+function createAttribute(attributes, attribute){
+  var newAttribute = document.createElement('div')
+  newAttribute.className = "flexAndWrap sansSerif amenitie-container"
+
+  var imgContainer = document.createElement('div')
+  imgContainer.className="center"
+
+  var newAttributeIcon = document.createElement('img')
+  newAttributeIcon.setAttribute('src', attributes[attribute].imgURL)
+  newAttributeIcon.className="icon"
+
+  var newAttributeTextContainer = document.createElement('div')
+  newAttributeTextContainer.className="amenities-text-container center"
+
+  var newAttributeTextInnerContainer = document.createElement('div')
+  newAttributeTextInnerContainer.className = "inner-text-container"
+
+  var newAttributeTitle =document.createElement('div')
+  newAttributeTitle.className = "font-weight-medium"
+  newAttributeTitle.textContent = attributes[attribute].title
+
+  var newAttributeText =document.createElement('div')
+  newAttributeText.className = "amenitie-description"
+  newAttributeText.textContent = attributes[attribute].description
+
+  newAttributeTextInnerContainer.appendChild(newAttributeTitle)
+  newAttributeTextInnerContainer.appendChild(newAttributeText)
+
+  newAttributeTextContainer.appendChild(newAttributeTextInnerContainer)
+
+  imgContainer.appendChild(newAttributeIcon)
+
+  newAttribute.appendChild(imgContainer)
+  newAttribute.appendChild(newAttributeTextContainer)
+
+
+  return newAttribute
+}

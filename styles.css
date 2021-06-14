@@ -1,0 +1,288 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#map-container {
+  margin-top: 30px;
+  position: relative;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+
+#map {
+  /* position: absolute;
+  left: 22em;
+  top: 0;
+  right: 0;
+  bottom: 0; */
+  width: 300px;
+  height: 300px;
+  max-width: 100%;
+}
+
+#locations-panel {
+  position: absolute;
+  left: 0;
+  width: 22em;
+  top: 0;
+  bottom: 0;
+  overflow-y: auto;
+  background: white;
+  padding: 0.5em;
+  box-sizing: border-box;
+}
+
+/* @media only screen and (max-width: 876px) {
+  #map {
+    bottom: 50%;
+  }
+
+  #locations-panel {
+    top: 50%;
+    right: 0;
+    width: unset;
+  }
+} */
+
+#locations-panel-list .section-name {
+  font-weight: 500;
+  font-size: 0.9em;
+  margin: 1.8em 0 1em 1.5em;
+}
+
+#locations-panel-list .location-result {
+  position: relative;
+  padding: 0.8em 3.5em 0.8em 1.4em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+}
+
+#locations-panel-list .location-result:first-of-type {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+#locations-panel-list .location-result:last-of-type {
+  border-bottom: none;
+}
+
+#locations-panel-list .location-result.selected {
+  outline: 2px solid #4285f4;
+}
+
+#locations-panel-list button.select-location {
+  margin-bottom: 0.6em;
+}
+
+#locations-panel-list .location-result h2.name {
+  font-size: 1em;
+  font-weight: 500;
+  margin: 0;
+}
+
+#locations-panel-list .location-result .address {
+  font-size: 0.9em;
+  margin-bottom: 0.5em;
+}
+
+#location-results-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.row {
+  width: 100%;
+}
+
+.headerBar {
+  width: 100%;
+  background-color: rgb(243, 153, 34);
+}
+
+.contents {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.content {
+  display: flex;
+
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.column {
+  width: 80%;
+}
+
+.flexLeft {
+  display: flex;
+  justify-content: left;
+
+  /* align-items: center; */
+}
+
+.flexRight {
+  display: flex;
+}
+
+.titleText {
+  color: white;
+  font-family: sans-serif;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.active {
+  background-color: rgb(243, 153, 34);
+}
+
+.tab {
+  color: white;
+  font-family: sans-serif;
+  font-size: 13px;
+  padding-top: 13px;
+  padding-right: 8px;
+  padding-left: 8px;
+  margin-left: 8px;
+}
+
+.container {
+  margin: 20px;
+}
+
+.bedroom-title {
+  font-size: 24px;
+}
+
+.bedroom-container {
+  /* display: flex;
+  flex-wrap: wrap; */
+}
+
+.button {
+  border: none;
+  color: darkgray;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 8px;
+  width: 200px;
+}
+
+.available {
+  color: black;
+  cursor: pointer;
+}
+
+.flexAndWrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flexInline {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sansSerif {
+  font-family: sans-serif;
+}
+
+.font-weight-medium {
+  font-size: 20px;
+}
+
+.font-weight-large {
+  font-size: 28px;
+}
+
+.button-container {
+  margin: 10px;
+}
+
+.houseImage {
+  margin-top: 68px;
+  height: 500px;
+  border-radius: 12px;
+}
+
+.image-container {
+
+}
+
+.amenitie-container {
+  margin: 10px;
+}
+
+.amenitie-description {
+  margin-top: 4px;
+}
+
+.icon {
+  height: 64px;
+}
+
+.amenities-text-container {
+  margin-left: 10px;
+  background-color: rgb(239, 239, 239);
+  padding-left: 18px;
+  padding-right: 18px;
+  border-radius: 8px;
+  max-width: 70%;
+}
+
+.inner-text-container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.column-half {
+  width: 50%;
+  min-width: 600px;
+}
+
+.column-40 {
+  width: 40%;
+}
+
+.maxWidth {
+  max-width: 100%;
+}
+
+.houseImg {
+  height: 300px;
+}
+
+.textSpace {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.column-50 {
+  max-width: 50%;
+}
+
+.marginLeft {
+  margin-left: 20px;
+}
+
+.marginTopBottom {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
