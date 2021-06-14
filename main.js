@@ -8,7 +8,17 @@ var ruleshtml = document.getElementById('rules')
 var rules = house.rules
 
 var bedroomAttributeshtml = document.getElementById('bedroom-attributes')
-var attributes = house.rooms.bedroom2.attributes
+var bedroomAttributesArray = [];
+
+
+
+for (bedroom in house.rooms){
+  bedroomAttributesArray.push(house.rooms[bedroom].attributes)
+}
+
+var attributes = bedroomAttributesArray[1]
+
+bedroomshtml.addEventListener("click", handleClick)
 
 
 for(room in bedrooms) {
@@ -23,10 +33,46 @@ for(rule in rules) {
   ruleshtml.appendChild(createAttribute(rules, rule))
 }
 
-for(attribute in attributes) {
-  bedroomAttributeshtml.appendChild(createAttribute(attributes, attribute))
-}
+for(attribute in bedroomAttributesArray[1]) {
+      bedroomAttributeshtml.appendChild(createAttribute(bedroomAttributesArray[1], attribute))
+    }
 
+function handleClick(event) {
+  var button = document.getElementById(event.target.id)
+  var buttons = document.getElementsByClassName("button")
+
+  console.log(buttons)
+
+  if(button.className === "button available") {
+    for (var i = 0; i < buttons.length; i++) {
+      if(buttons[i].className === "button available active") {
+        buttons[i].className = "button available"
+      }
+    }
+    button.className = "button available active"
+
+    var bedroomNum = 0;
+
+
+    for(room in house.rooms) {
+
+      if(event.target.id === house.rooms[room].id) {
+        break;
+      }
+      bedroomNum++;
+    }
+
+    while (bedroomAttributeshtml.firstChild) {
+        bedroomAttributeshtml.removeChild(bedroomAttributeshtml.firstChild);
+    }
+
+
+    for(attribute in bedroomAttributesArray[bedroomNum]) {
+      bedroomAttributeshtml.appendChild(createAttribute(bedroomAttributesArray[bedroomNum], attribute))
+    }
+  }
+  console.log()
+}
 
 function createBedroom(room){
   var newBedroom = document.createElement('div')
@@ -44,6 +90,7 @@ function createBedroom(room){
   newBedroomButtonContainer.className="button-container center"
 
   var newBedroomButton = document.createElement('button')
+  newBedroomButton.id = bedrooms[room].id
 
   if(bedrooms[room].dateAvailable){
     newBedroomButton.className="button available"

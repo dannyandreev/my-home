@@ -13,7 +13,7 @@ var house = {
   "address1": "126 Jordan St",
   "address2": "Santa Cruz, CA 95060, USA",
   "amenities": {
-    "utilities":    {"title": "Utilites", "included": true,"description": "All utilites included - Water/Electricity/Gas/Garbage.", "imgURL": "./images/icons8-electricity-64.png"},
+    "utilities":    {"title": "Utilites", "included": true,"description": "All utilites included - Water Electricity Gas Garbage.", "imgURL": "./images/icons8-electricity-64.png"},
     "wifi":         {"title": "WiFi", "included": true,"description": "Best available in Santa Cruz - Xfinity - 400MBs Download - 40MBs Upload.", "imgURL": "./images/icons8-wi-fi-64.png"},
     "cleaning":     {"title": "Cleaners", "included": true,"description": "We have cleaning ladies that come twice a month to clean common spaces and the rooms.", "imgURL": "./images/icons8-housekeeper-80.png"},
     "washer-drier": {"title": "Washer and Drier", "included": true,"description": "A washer and drier are located on the first floor.", "imgURL": "./images/icons8-washing-machine-64.png"},
@@ -32,67 +32,75 @@ var house = {
     "general":      {"title": "General Etiquette", "included": true,"description": "None of these have been an issues so we really just ask that you are curtious to your fellow housemates.", "imgURL": "./images/icons8-house-keys-96.png"}
   },
   "rooms": {
-    "bedroom1": {"display": "inActive", "name": "Bedroom 1", "tenant": null, "number": "1", "dateAvailable": null,
+    "bedroom1": {"id": "bedroom-1", "display": "inActive", "name": "Bedroom 1", "tenant": null, "number": "1", "dateAvailable": null,
       "attributes": {
         "price":     {"title": "Price", "description": "xxxx$/mo", "imgURL": "./images/icons8-price-tag-64.png"},
         "deposit":   {"title": "Security Deposit", "description": "xxxx$", "imgURL": "./images/icons8-safe-96.png"},
         "lease":     {"title": "Lease Terms", "description": "12 month minimum.", "imgURL": "./images/icons8-house-keys-96.png"},
-        "area":      {"title": "Area", "description": "160sqft", "imgURL": "./images/icons8-floor-plan-64.png"},
-        "furniture": {"title": "Furniture", "description": "This room comes furnishes with a table, dresser, and bed", "imgURL": "./images/icons8-table-64.png"}
+        "area":      {"title": "Area", "description": "157 sqft", "imgURL": "./images/icons8-floor-plan-64.png"},
+        "furniture": {"title": "Furniture", "description": "This room comes furnishes with a table, dresser, and bed", "imgURL": "./images/icons8-table-64.png"},
+        "balcony":   {"title": "Balcony", "description": "This room with a 180 sqft balcony", "imgURL": "./images/icons8-balcony-96.png"},
+        "windows":   {"title": "Windows", "description": "One NW facing window and one SW facing window.", "imgURL": "./images/icons8-closed-window-64.png"}
       }
     },
-    "bedroom2": {"display": "active", "name": "Bedroom 2", "number": "2", "tenant": "Sakoya", "dateAvailable": "Dec, 1",
+    "bedroom2": {"id": "bedroom-2", "display": "active", "name": "Bedroom 2", "number": "2", "tenant": "Sakoya", "dateAvailable": "Dec, 1",
+      "attributes": {
+        "price":     {"title": "Price", "description": "1260$/mo", "imgURL": "./images/icons8-price-tag-64.png"},
+        "deposit":   {"title": "Security Deposit", "description": "2620$", "imgURL": "./images/icons8-safe-96.png"},
+        "lease":     {"title": "Lease Terms", "description": "12 month minimum.", "imgURL": "./images/icons8-house-keys-96.png"},
+        "area":      {"title": "Area", "description": "154 sqft", "imgURL": "./images/icons8-floor-plan-64.png"},
+        "furniture": {"title": "Furniture", "description": "This room comes furnishes with a table, chair, and bed.", "imgURL": "./images/icons8-table-64.png"},
+        "windows":   {"title": "Windows", "description": "Two NW facing windows and one NE facing window.", "imgURL": "./images/icons8-closed-window-64.png"}
+      }
+    },
+    "bedroom3": {"id": "bedroom-3", "display": "inActive","name": "Bedroom 3", "number": "3", "price": 1050, "tenant": "Aksu", "area": 120, "dateAvailable": "Dec, 1",
+      "attributes": {
+        "price":     {"title": "Price", "description": "1260$/mo", "imgURL": "./images/icons8-price-tag-64.png"},
+        "deposit":   {"title": "Security Deposit", "description": "2620$", "imgURL": "./images/icons8-safe-96.png"},
+        "lease":     {"title": "Lease Terms", "description": "12 month minimum.", "imgURL": "./images/icons8-house-keys-96.png"},
+        "area":      {"title": "Area", "description": "121 sqft", "imgURL": "./images/icons8-floor-plan-64.png"},
+        "furniture": {"title": "Furniture", "description": "This room comes furnishes with a table, chair, and bed.", "imgURL": "./images/icons8-table-64.png"},
+        "windows":   {"title": "Windows", "description": "One SW facing window and one SE facing window.", "imgURL": "./images/icons8-closed-window-64.png"}
+      }
+    },
+    "bedroom4": {"id": "bedroom-4", "display": "inActive","name": "Bedroom 4", "number": "4", "price": 1260, "tenant": "Marcel", "area": 160, "dateAvailable": "Dec, 1",
+      "attributes": {
+        "price":     {"title": "Price", "description": "1260$/mo", "imgURL": "./images/icons8-price-tag-64.png"},
+        "deposit":   {"title": "Security Deposit", "description": "2620$", "imgURL": "./images/icons8-safe-96.png"},
+        "lease":     {"title": "Lease Terms", "description": "12 month minimum.", "imgURL": "./images/icons8-house-keys-96.png"},
+        "area":      {"title": "Area", "description": "184qft", "imgURL": "./images/icons8-floor-plan-64.png"},
+        "furniture": {"title": "Furniture", "description": "This room comes furnishes with a table, chair, and bed.", "imgURL": "./images/icons8-table-64.png"},
+        "windows":   {"title": "Windows", "description": "One NE facing window and one SE facing window.", "imgURL": "./images/icons8-closed-window-64.png"}
+      }
+    },
+    "bedroom5": {"id": "bedroom-5", "display": "inActive","name": "Bedroom 5", "number": "5", "price": 1025, "tenant": "Jennifer", "area": 120, "dateAvailable": "July 17",
       "attributes": {
         "price":     {"title": "Price", "description": "1260$/mo", "imgURL": "./images/icons8-price-tag-64.png"},
         "deposit":   {"title": "Security Deposit", "description": "2620$", "imgURL": "./images/icons8-safe-96.png"},
         "lease":     {"title": "Lease Terms", "description": "12 month minimum.", "imgURL": "./images/icons8-house-keys-96.png"},
         "area":      {"title": "Area", "description": "160sqft", "imgURL": "./images/icons8-floor-plan-64.png"},
-        "furniture": {"title": "Furniture", "description": "This room comes furnishes with a table, chair, and bed.", "imgURL": "./images/icons8-table-64.png"}
+        "furniture": {"title": "Furniture", "description": "This room comes furnishes with a table, chair, and bed.", "imgURL": "./images/icons8-table-64.png"},
+        "windows":   {"title": "Windows", "description": "Two SW facing windows.", "imgURL": "./images/icons8-closed-window-64.png"}
       }
     },
-    "bedroom3": {"display": "inActive","name": "Bedroom 3", "number": "3", "price": 1050, "tenant": "Aksu", "area": 120, "dateAvailable": "Dec, 1",
+    "bedroom6": {"id": "bedroom-6", "display": "inActive","name": "Bedroom 6", "number": "6", "price": 1025, "tenant": "William", "area": 120, "dateAvailable": "July, 1",
       "attributes": {
-        "price":     {"title": "Price", "description": "1260$/mo", "imgURL": ""},
-        "deposit":   {"title": "Security Deposit", "description": "2620$", "imgURL": ""},
-        "lease":     {"title": "Lease Terms", "description": "12 month minimum.", "imgURL": ""},
-        "area":      {"title": "Area", "description": "160sqft", "imgURL": ""},
-        "furniture": {"title": "Furniture", "description": "This room comes furnishes with a table, chair, and bed.", "imgURL": ""}
+        "price":     {"title": "Price", "description": "1260$/mo", "imgURL": "./images/icons8-price-tag-64.png"},
+        "deposit":   {"title": "Security Deposit", "description": "2620$", "imgURL": "./images/icons8-safe-96.png"},
+        "lease":     {"title": "Lease Terms", "description": "12 month minimum.", "imgURL": "./images/icons8-house-keys-96.png"},
+        "area":      {"title": "Area", "description": "160sqft", "imgURL": "./images/icons8-floor-plan-64.png"},
+        "furniture": {"title": "Furniture", "description": "This room comes furnishes with a table, chair, and bed.", "imgURL": "./images/icons8-table-64.png"},
+        "windows":   {"title": "Windows", "description": "One large NE facing window.", "imgURL": "./images/icons8-closed-window-64.png"}
       }
     },
-    "bedroom4": {"display": "inActive","name": "Bedroom 4", "number": "4", "price": 1260, "tenant": "Marcel", "area": 160, "dateAvailable": "Dec, 1",
+    "bedroom7": {"id": "bedroom-7", "display": "inActive","name": "Bedroom 7", "number": "7", "price": 1260, "tenant": "Rhiannon", "area": 160, "dateAvailable": "July, 1",
       "attributes": {
-        "price":     {"title": "Price", "description": "1260$/mo", "imgURL": ""},
-        "deposit":   {"title": "Security Deposit", "description": "2620$", "imgURL": ""},
-        "lease":     {"title": "Lease Terms", "description": "12 month minimum.", "imgURL": ""},
-        "area":      {"title": "Area", "description": "160sqft", "imgURL": ""},
-        "furniture": {"title": "Furniture", "description": "This room comes furnishes with a table, chair, and bed.", "imgURL": ""}
-      }
-    },
-    "bedroom5": {"display": "inActive","name": "Bedroom 5", "number": "5", "price": 1025, "tenant": "Jennifer", "area": 120, "dateAvailable": "July 17",
-      "attributes": {
-        "price":     {"title": "Price", "description": "1260$/mo", "imgURL": ""},
-        "deposit":   {"title": "Security Deposit", "description": "2620$", "imgURL": ""},
-        "lease":     {"title": "Lease Terms", "description": "12 month minimum.", "imgURL": ""},
-        "area":      {"title": "Area", "description": "160sqft", "imgURL": ""},
-        "furniture": {"title": "Furniture", "description": "This room comes furnishes with a table, chair, and bed.", "imgURL": ""}
-      }
-    },
-    "bedroom6": {"display": "inActive","name": "Bedroom 6", "number": "6", "price": 1025, "tenant": "William", "area": 120, "dateAvailable": "July, 1",
-      "attributes": {
-        "price":     {"title": "Price", "description": "1260$/mo", "imgURL": ""},
-        "deposit":   {"title": "Security Deposit", "description": "2620$", "imgURL": ""},
-        "lease":     {"title": "Lease Terms", "description": "12 month minimum.", "imgURL": ""},
-        "area":      {"title": "Area", "description": "160sqft", "imgURL": ""},
-        "furniture": {"title": "Furniture", "description": "This room comes furnishes with a table, chair, and bed.", "imgURL": ""}
-      }
-    },
-    "bedroom7": {"display": "inActive","name": "Bedroom 7", "number": "7", "price": 1260, "tenant": "Rhiannon", "area": 160, "dateAvailable": "July, 1",
-      "attributes": {
-        "price":     {"title": "Price", "description": "1260$/mo", "imgURL": ""},
-        "deposit":   {"title": "Security Deposit", "description": "2620$", "imgURL": ""},
-        "lease":     {"title": "Lease Terms", "description": "12 month minimum.", "imgURL": ""},
-        "area":      {"title": "Area", "description": "160sqft", "imgURL": ""},
-        "furniture": {"title": "Furniture", "description": "This room comes furnishes with a table, chair, and bed.", "imgURL": ""}
+        "price":     {"title": "Price", "description": "1260$/mo", "imgURL": "./images/icons8-price-tag-64.png"},
+        "deposit":   {"title": "Security Deposit", "description": "2620$", "imgURL": "./images/icons8-safe-96.png"},
+        "lease":     {"title": "Lease Terms", "description": "12 month minimum.", "imgURL": "./images/icons8-house-keys-96.png"},
+        "area":      {"title": "Area", "description": "160sqft", "imgURL": "./images/icons8-floor-plan-64.png"},
+        "furniture": {"title": "Furniture", "description": "This room comes furnishes with a table, chair, and bed.", "imgURL": "./images/icons8-table-64.png"},
+        "windows":   {"title": "Windows", "description": "One large NW window and one NE window.", "imgURL": "./images/icons8-closed-window-64.png"}
       }
     }
   },

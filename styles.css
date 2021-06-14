@@ -18,8 +18,8 @@ body {
   top: 0;
   right: 0;
   bottom: 0; */
-  width: 512px;
-  height: 512px;
+  width: 300px;
+  height: 300px;
   max-width: 100%;
 }
 
@@ -109,6 +109,13 @@ body {
   width: 100%;
 }
 
+.content {
+  display: flex;
+
+  /* justify-content: center; */
+  align-items: center;
+}
+
 .column {
   width: 80%;
 }
@@ -182,9 +189,15 @@ body {
   flex-wrap: wrap;
 }
 
+.flexInline {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
 .center {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .sansSerif {
@@ -244,13 +257,16 @@ body {
   min-width: 600px;
 }
 
+.column-40 {
+  width: 40%;
+}
+
 .maxWidth {
   max-width: 100%;
 }
 
 .houseImg {
   height: 300px;
-  margin: 20px;
 }
 
 .textSpace {
@@ -260,4 +276,13 @@ body {
 
 .column-50 {
   max-width: 50%;
+}
+
+.marginLeft {
+  margin-left: 20px;
+}
+
+.marginTopBottom {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
