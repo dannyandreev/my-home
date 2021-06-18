@@ -3,12 +3,25 @@ body {
   background-color: snow;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+a,
+a:hover,
+a:visited,
+a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
 /* --------------------------------------------------------- Header Bar Styling */
 
 .header-bar {
   width: 100%;
   background-color: rgb(243, 153, 34);
   position: fixed;
+  z-index: 1;
 }
 
 .header-content {
@@ -20,8 +33,70 @@ body {
   margin-left: 16px;
 }
 
-.header-nav-button {
+.nav-element {
+  font-size: 16px;
+  margin-left: 16px;
+}
 
+.active {
+  color: rgb(69, 75, 84) !important;
+}
+
+/* --------------------------------------------------------- Banner Styling */
+
+.banner {
+  padding-top: 160px;
+  width: 100%;
+  background-color: rgb(105, 49, 49);
+  padding-bottom: 80px;
+}
+
+.banner-image {
+  width: 100%;
+}
+
+.banner-text {
+  position: absolute;
+}
+
+/* --------------------------------------------------------- About Us Styling */
+
+.about-us {
+  width: 100%;
+  background-color: rgb(143, 71, 127);
+  padding-bottom: 64px;
+}
+
+/* --------------------------------------------------------- About Us Styling */
+
+.included-amenities {
+  width: 100%;
+  height: 1000px;
+  background-color: rgb(68, 44, 8);
+}
+
+/* --------------------------------------------------------- About Us Styling */
+
+.available-bedrooms {
+  width: 100%;
+  height: 1000px;
+  background-color: rgb(95, 153, 88);
+}
+
+/* --------------------------------------------------------- About Us Styling */
+
+.house-rules {
+  width: 100%;
+  height: 1000px;
+  background-color: rgb(57, 74, 100);
+}
+
+/* --------------------------------------------------------- About Us Styling */
+
+.rent-a-room {
+  width: 100%;
+  height: 1000px;
+  background-color: rgb(110, 45, 116);
 }
 
 /* --------------------------------------------------------- Allignment Styling */
@@ -49,16 +124,140 @@ body {
   width: 80%;
 }
 
+.column-60 {
+  width: 60%;
+}
+
+.column-40 {
+  width: 40%;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.section-title {
+  margin-top: 72px;
+  margin-bottom: 48px;
+}
+
 /* --------------------------------------------------------- Text Styling */
 .main-font {
   font-family: 'Days One', sans-serif;
+}
+
+.text-font {
+  font-family: sans-serif;
 }
 
 .light {
   color: snow;
 }
 
-.medium-size {
+.font-size-medium {
   font-size: 24px;
 }
+
+.font-size-title {
+  /* font-size: 100px; */
+  font-size: 8vw;
+}
+
+.font-size-section-title {
+  /* font-size: 100px; */
+  font-size: 5vw;
+}
+
+.orange {
+  color: rgb(243, 153, 34);
+}
+
+/* --------------------------------------------------------- Screen Resize Styling */
+
+@media only screen and (max-width: 1350px) {
+  .header-content {
+    display: flex;
+    justify-content: center;
+  }
+
+  .header-nav-bar {
+    margin-left: 6px;
+    margin-right: 6px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+
+  a {
+    text-align: center;
+  }
+
+  .banner {
+    padding-top: 200px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .nav-element {
+    font-size: 12px;
+    margin-left: 12px;
+  }
+
+  .title-icon {
+    height: 40px;
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: center;
+  }
+
+  .header-nav-bar {
+    margin-left: 6px;
+    margin-right: 6px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  a {
+    text-align: center;
+  }
+
+  .banner {
+    padding-top: 100px;
+    padding-bottom: 40px;
+  }
+
+  .column {
+    width: 100%;
+  }
+
+  .section-title {
+    margin-left: 12px;
+  }
+
+  .column-60 {
+    width: 100%;
+  }
+
+  .column-40 {
+    width: 100%;
+  }
+}
+
+#map-container {
+  margin-top: 30px;
+  position: relative;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+
+#map {
+  /* position: absolute;
+  left: 22em;
+  top: 0;
+  right: 0;
+  bottom: 0; */
+  width: 300px;
+  height: 300px;
+  max-width: 100%;
 }
