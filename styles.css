@@ -53,6 +53,7 @@ a:active {
 
 .banner-image {
   width: 100%;
+  border-radius: 16px;
 }
 
 .banner-text {
@@ -194,6 +195,24 @@ a:active {
   .banner {
     padding-top: 200px;
   }
+
+  .section-title {
+    margin-top: 128px;
+  }
+
+  .banner-image {
+    border-radius: 12px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .section-title {
+    margin-top: 160px;
+  }
+
+  .banner-image {
+    border-radius: 8px;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -232,6 +251,7 @@ a:active {
   }
 
   .section-title {
+    margin-top: 100px;
     margin-left: 12px;
   }
 
@@ -242,13 +262,17 @@ a:active {
   .column-40 {
     width: 100%;
   }
+
+  .banner-image {
+    border-radius: 0;
+  }
 }
 
 #map-container {
-  margin-top: 30px;
+  /* margin-top: 30px;
   position: relative;
   font-family: "Roboto", sans-serif;
-  box-sizing: border-box;
+  box-sizing: border-box; */
 }
 
 #map {
@@ -257,7 +281,8 @@ a:active {
   top: 0;
   right: 0;
   bottom: 0; */
-  width: 300px;
-  height: 300px;
+
+  /* width: 300px; */
+  height: 100%;
   max-width: 100%;
 }

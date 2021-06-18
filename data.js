@@ -1,3 +1,13 @@
+const CONFIGURATION = { "capabilities": {}, "locations": [{
+  "title": "Light House",
+  "address1": "126 Jordan St",
+  "address2": "Santa Cruz, CA 95060, USA",
+  "coords": { "lat": 36.97663937789158, "lng": -122.03377977294909 },
+  "placeId": "ChIJ586bwS1AjoARBMu5ozDwS0E" }],
+  "mapOptions": {"zoom": 5},
+  "mapsApiKey": "AIzaSyAqEIWhLwHZVz-cjQcspvsphqFrLA4Exmo"
+};
+
 var pages = {
   "banner" : {
     "title" : "Banner",
