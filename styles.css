@@ -47,7 +47,7 @@ a:active {
 .banner {
   padding-top: 160px;
   width: 100%;
-  background-color: rgb(105, 49, 49);
+  background-color: rgb(57, 74, 100);
   padding-bottom: 80px;
 }
 
@@ -68,15 +68,26 @@ a:active {
   padding-bottom: 64px;
 }
 
-/* --------------------------------------------------------- About Us Styling */
+/* --------------------------------------------------------- Included Amenities Styling */
 
 .included-amenities {
   width: 100%;
-  height: 1000px;
   background-color: rgb(68, 44, 8);
+  padding-bottom: 64px;
 }
 
-/* --------------------------------------------------------- About Us Styling */
+.amenitie-container {
+  background-color: rgb(243, 153, 34);
+  border-radius: 12px;
+  padding: 8px;
+  margin-bottom: 16px;
+}
+
+.amenities-text-container {
+  margin-left: 16px;
+}
+
+/* --------------------------------------------------------- Available Bedrooms Styling */
 
 .available-bedrooms {
   width: 100%;
@@ -84,26 +95,55 @@ a:active {
   background-color: rgb(95, 153, 88);
 }
 
-/* --------------------------------------------------------- About Us Styling */
+/* --------------------------------------------------------- House Rules Styling */
 
 .house-rules {
   width: 100%;
-  height: 1000px;
   background-color: rgb(57, 74, 100);
+  padding-bottom: 64px;
 }
 
-/* --------------------------------------------------------- About Us Styling */
+/* --------------------------------------------------------- Rent A Room Styling */
 
 .rent-a-room {
   width: 100%;
   height: 1000px;
   background-color: rgb(110, 45, 116);
+  padding-bottom: 64px;
+}
+
+.questionnaire-link-container {
+  background-color: rgb(243, 153, 34);
+  width: 40%;
+  margin-top: 48px;
+  height: 80px;
+  border-radius: 12px;
+}
+
+.questionnaire-link-container:hover {
+  background-color: orange;
+  cursor: pointer;
+}
+
+.questionnaire-link {
+  text-align: center;
+  font-size: 2vw;
+}
+
+/* --------------------------------------------------------- Attribute Styling */
+
+.icon {
+  width: 64px;
 }
 
 /* --------------------------------------------------------- Allignment Styling */
 .wrap {
   display: flex;
   flex-wrap: wrap;
+}
+
+.flex {
+  display: flex;
 }
 
 .center-h {
@@ -117,6 +157,7 @@ a:active {
 }
 
 .center {
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -142,6 +183,10 @@ a:active {
   margin-bottom: 48px;
 }
 
+.margin-top {
+  margin-top: 16px;
+}
+
 /* --------------------------------------------------------- Text Styling */
 .main-font {
   font-family: 'Days One', sans-serif;
@@ -160,12 +205,10 @@ a:active {
 }
 
 .font-size-title {
-  /* font-size: 100px; */
   font-size: 8vw;
 }
 
 .font-size-section-title {
-  /* font-size: 100px; */
   font-size: 5vw;
 }
 
@@ -212,6 +255,14 @@ a:active {
 
   .banner-image {
     border-radius: 8px;
+  }
+
+  .font-size-medium {
+    font-size: 2.5vw;
+  }
+
+  .questionnaire-link {
+    font-size: 16px;
   }
 }
 
@@ -265,6 +316,18 @@ a:active {
 
   .banner-image {
     border-radius: 0;
+  }
+
+  .amenitie-container {
+    border-radius: 0;
+  }
+
+  .icon {
+    margin-right: 8px;
+  }
+
+  .rent-a-room-text {
+    margin-left: 12px;
   }
 }
 
