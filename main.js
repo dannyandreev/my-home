@@ -1,141 +1,148 @@
-var bedroomshtml = document.getElementById('bedrooms')
-var bedrooms = house.rooms
 
-var amenitieshtml = document.getElementById('amenities')
-var amenities = house.amenities
+/* global pages */
+/* global house */
 
-var ruleshtml = document.getElementById('rules')
-var rules = house.rules
-
-var bedroomAttributeshtml = document.getElementById('bedroom-attributes')
-var bedroomAttributesArray = [];
+var headerNavbar = document.getElementById("header-nav-bar")
+headerNavbar.addEventListener('click' , handleClick)
 
 
+createNavBar()
+constructAmenities()
+createBedrooms()
+constructHouseRules()
 
-for (bedroom in house.rooms){
-  bedroomAttributesArray.push(house.rooms[bedroom].attributes)
+createBedroomClickListener()
+
+function createBedroomClickListener(){
+  var bedroomshtml = document.getElementById('bedrooms')
+  bedroomshtml.addEventListener("click", handleBedroomClick)
 }
 
-var attributes = bedroomAttributesArray[1]
-
-bedroomshtml.addEventListener("click", handleClick)
-
-
-for(room in bedrooms) {
-  bedroomshtml.appendChild(createBedroom(room))
-}
-
-for(amenitie in amenities) {
-  amenitieshtml.appendChild(createAttribute(amenities, amenitie))
-}
-
-for(rule in rules) {
-  ruleshtml.appendChild(createAttribute(rules, rule))
-}
-
-for(attribute in bedroomAttributesArray[1]) {
-      bedroomAttributeshtml.appendChild(createAttribute(bedroomAttributesArray[1], attribute))
+function createNavBar(){
+  for(page in pages){
+    if(pages[page].navlink){
+      headerNavbar.appendChild(createNavbarElements(pages[page]))
     }
+  pages[page].height = document.getElementById(pages[page].id).offsetHeight //needed for link color change based on scroll
+  }
+}
+
+function constructAmenities(){
+  var amenitieshtml = document.getElementById('amenities')
+  var amenities = house.amenities
+
+  for(amenitie in amenities) {
+    amenitieshtml.appendChild(createAttribute(amenities, amenitie))
+  }
+}
+
+function constructHouseRules(){
+  var ruleshtml = document.getElementById('rules')
+  var rules = house.rules
+
+  for(rule in rules) {
+    ruleshtml.appendChild(createAttribute(rules, rule))
+  }
+}
+
+function createBedrooms(){
+  var bedroomshtml = document.getElementById('bedrooms')
+  var bedrooms = house.rooms
+
+  for(room in bedrooms) {
+    bedroomshtml.appendChild(createAttribute(bedrooms, room))
+  }
+
+  for(bedroom in bedrooms) {
+    if(bedrooms[bedroom].status === "display") {
+      createBedroomAttributes(bedroom)
+    }
+  }
+}
+
+function createBedroomAttributes(bedroom){
+  var bedroomAttributeshtml = document.getElementById('bedroom-attributes')
+  var bedroomAttributes = house.rooms[bedroom].attributes
+
+  for(attribute in bedroomAttributes) {
+    bedroomAttributeshtml.appendChild(createAttribute(bedroomAttributes, attribute))
+  }
+}
+
+function createNavbarElements(page){
+
+  var navElement = document.createElement('div')
+  navElement.className = "nav-element center-v main-font light"
+  var link = document.createElement('a')
+  link.setAttribute('href', "#"+page.id)
+  link.textContent = page.title
+  link.className = "nav-link"
+  navElement.appendChild(link)
+  return navElement
+}
 
 function handleClick(event) {
-  var button = document.getElementById(event.target.id)
-  var buttons = document.getElementsByClassName("button")
+  if (event.target.className.includes("nav-link")) {
+    var navLinks = document.getElementsByClassName('nav-link')
 
-  console.log(buttons)
-
-  if(button.className === "button available") {
-    for (var i = 0; i < buttons.length; i++) {
-      if(buttons[i].className === "button available active") {
-        buttons[i].className = "button available"
-      }
+    for(link of navLinks) {
+      link.className = "nav-link"
     }
-    button.className = "button available active"
-
-    var bedroomNum = 0;
-
-
-    for(room in house.rooms) {
-
-      if(event.target.id === house.rooms[room].id) {
-        break;
-      }
-      bedroomNum++;
-    }
-
-    while (bedroomAttributeshtml.firstChild) {
-        bedroomAttributeshtml.removeChild(bedroomAttributeshtml.firstChild);
-    }
-
-
-    for(attribute in bedroomAttributesArray[bedroomNum]) {
-      bedroomAttributeshtml.appendChild(createAttribute(bedroomAttributesArray[bedroomNum], attribute))
-    }
+    event.target.className += " active"
   }
-  console.log()
 }
 
-function createBedroom(room){
-  var newBedroom = document.createElement('div')
-  newBedroom.className = "flexAndWrap sansSerif"
+function createCarousel(bedroom){
+  var images = house.rooms[bedroom].images
+  var newCarousel = document.getElementById('carousel')
 
-  var newBedroomTextContainer = document.createElement('div')
-  newBedroomTextContainer.className = "center"
+  console.log(images)
+  for(var i = 1; i<images.length;i++) {
 
-  var  newBedroomText = document.createElement('div')
-  newBedroomText.className = "font-weight-medium"
-  newBedroomText.id = "bedroom"+bedrooms[room].number
-  newBedroomText.textContent = bedrooms[room].name
-
-  var newBedroomButtonContainer = document.createElement('div')
-  newBedroomButtonContainer.className="button-container center"
-
-  var newBedroomButton = document.createElement('button')
-  newBedroomButton.id = bedrooms[room].id
-
-  if(bedrooms[room].dateAvailable){
-    newBedroomButton.className="button available"
-    newBedroomButton.textContent = "Available " + bedrooms[room].dateAvailable
-  } else {
-    newBedroomButton.className="button"
-    newBedroomButton.textContent = "Not Available"
+    console.log(images[0]+images[i])
+    var newImage = document.createElement('img')
+    newImage.setAttribute('src', images[0]+images[i])
+    newImage.className = "carouselImage"
+    newCarousel.appendChild(newImage)
   }
 
-  if(bedrooms[room].display === "active"){
-    newBedroomButton.className += " active"
-  }
-
-  newBedroomButtonContainer.appendChild(newBedroomButton)
-  newBedroomTextContainer.appendChild(newBedroomText)
-
-  newBedroom.appendChild(newBedroomTextContainer)
-  newBedroom.appendChild(newBedroomButtonContainer)
-
-  return newBedroom
 }
 
 function createAttribute(attributes, attribute){
   var newAttribute = document.createElement('div')
-  newAttribute.className = "flexAndWrap sansSerif amenitie-container"
+  newAttribute.className = "flex text-font attribute-container"
+
+  if(attributes[attribute].id){
+    newAttribute.id = attributes[attribute].id
+    newAttribute.className += " button"
+  }
+
+
+  if(attributes[attribute].status === "hidden"){
+    newAttribute.className += " hidden"
+  } else if (attributes[attribute].status === "unavailable"){
+    newAttribute.className += " unavailable"
+  }
 
   var imgContainer = document.createElement('div')
-  imgContainer.className="center"
+  imgContainer.className="center-v"
 
   var newAttributeIcon = document.createElement('img')
   newAttributeIcon.setAttribute('src', attributes[attribute].imgURL)
   newAttributeIcon.className="icon"
 
   var newAttributeTextContainer = document.createElement('div')
-  newAttributeTextContainer.className="amenities-text-container center"
+  newAttributeTextContainer.className="attributes-text-container center-v"
 
   var newAttributeTextInnerContainer = document.createElement('div')
-  newAttributeTextInnerContainer.className = "inner-text-container"
+  newAttributeTextInnerContainer.className = "main-font light"
 
   var newAttributeTitle =document.createElement('div')
-  newAttributeTitle.className = "font-weight-medium"
+  newAttributeTitle.className = "font-size-medium attribute-title"
   newAttributeTitle.textContent = attributes[attribute].title
 
   var newAttributeText =document.createElement('div')
-  newAttributeText.className = "amenitie-description"
+  newAttributeText.className = "attribute-description"
   newAttributeText.textContent = attributes[attribute].description
 
   newAttributeTextInnerContainer.appendChild(newAttributeTitle)
@@ -148,6 +155,50 @@ function createAttribute(attributes, attribute){
   newAttribute.appendChild(imgContainer)
   newAttribute.appendChild(newAttributeTextContainer)
 
-
   return newAttribute
+}
+
+function handleBedroomClick(event) {
+  var button = event.target.closest(".button")
+  if(!button){
+    return -1;
+  }
+  var buttonID = button.id
+  var buttons = document.getElementsByClassName("button")
+  var bedroomName = buttonID.replace("-","")
+  var bedroomshtml = document.getElementById('bedrooms')
+  var bedrooms = house.rooms
+
+  if(!button.className.includes("unavailable")){ //do if clicked and available
+    clearButtons(buttons)
+    button.className = "flex text-font attribute-container button"
+
+    clearBedroomAttributes()
+    createBedroomAttributes(bedroomName)
+
+    clearCarousel()
+    createCarousel(bedroomName)
+  }
+}
+
+function clearCarousel(){
+  var attributes = document.getElementById("carousel")
+  while (attributes.firstChild) {
+        attributes.removeChild(attributes.firstChild);
+  }
+}
+
+function clearBedroomAttributes(){
+  var attributes = document.getElementById("bedroom-attributes")
+  while (attributes.firstChild) {
+        attributes.removeChild(attributes.firstChild);
+  }
+}
+
+function clearButtons(buttons){
+  for(button of buttons){
+    if(!button.className.includes("unavailable")){
+      button.className = "flex text-font attribute-container button hidden"
+    }
+  }
 }

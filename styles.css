@@ -1,15 +1,395 @@
-html,
 body {
-  height: 100%;
   margin: 0;
-  padding: 0;
+  background-color: snow;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a,
+a:hover,
+a:visited,
+a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* --------------------------------------------------------- Header Bar Styling */
+
+.header-bar {
+  width: 100%;
+  background-color: rgb(243, 153, 34);
+  position: fixed;
+  z-index: 1;
+}
+
+.header-content {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.header-nav-bar {
+  margin-left: 16px;
+}
+
+.nav-element {
+  font-size: 16px;
+  margin-left: 16px;
+}
+
+.active {
+  color: rgb(69, 75, 84) !important;
+}
+
+.header-bar-divider {
+  width: 100%;
+  height: 3px;
+  background-color: rgb(57, 74, 100);
+}
+
+/* --------------------------------------------------------- Banner Styling */
+
+.banner {
+  padding-top: 160px;
+  width: 100%;
+  background-color: rgb(57, 74, 100);
+  padding-bottom: 80px;
+}
+
+.banner-image {
+  width: 100%;
+  border-radius: 16px;
+}
+
+.banner-text {
+  position: absolute;
+}
+
+/* --------------------------------------------------------- About Us Styling */
+
+.about-us {
+  width: 100%;
+  background-color: rgb(143, 71, 127);
+  padding-bottom: 64px;
+}
+
+/* --------------------------------------------------------- Included Amenities Styling */
+
+.included-amenities {
+  width: 100%;
+  background-color: rgb(68, 44, 8);
+  padding-bottom: 64px;
+}
+
+/* --------------------------------------------------------- Available Bedrooms Styling */
+
+.available-bedrooms {
+  width: 100%;
+  background-color: rgb(95, 153, 88);
+  padding-bottom: 64px;
+}
+
+.bedrooms {
+  margin-right: 16px;
+}
+
+.hidden {
+  background-color: rgb(243, 205, 156) !important;
+}
+
+.unavailable {
+  background-color: rgb(145, 145, 145) !important;
+}
+
+.display {
+  /* background-color: rgb(145, 145, 145) !important; */
+}
+
+.button {
+  cursor: pointer;
+}
+
+.hidden:hover {
+  background-color: rgb(230, 138, 18) !important;
+}
+
+.carouselImage {
+  height: 300px;
+  margin: 8px;
+  margin-bottom: 4px;
+}
+
+/* --------------------------------------------------------- House Rules Styling */
+
+.house-rules {
+  width: 100%;
+  background-color: rgb(57, 74, 100);
+  padding-bottom: 64px;
+}
+
+/* --------------------------------------------------------- Rent A Room Styling */
+
+.rent-a-room {
+  width: 100%;
+  height: 1000px;
+  background-color: rgb(110, 45, 116);
+  padding-bottom: 64px;
+}
+
+.questionnaire-link-container {
+  background-color: rgb(243, 153, 34);
+  width: 40%;
+  margin-top: 48px;
+  height: 80px;
+  border-radius: 12px;
+}
+
+.questionnaire-link-container:hover {
+  background-color: orange;
+  cursor: pointer;
+}
+
+.questionnaire-link {
+  text-align: center;
+  font-size: 2vw;
+}
+
+/* --------------------------------------------------------- Attribute Styling */
+
+.icon {
+  width: 64px;
+  margin-right: 8px;
+}
+
+.attribute-container {
+  background-color: rgb(243, 153, 34);
+  border-radius: 12px;
+  padding: 8px;
+  margin-bottom: 16px;
+}
+
+.attribute-text-container {
+  margin-left: 16px;
+}
+
+.attribute-title {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------- Allignment Styling */
+.wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex {
+  display: flex;
+}
+
+.center-h {
+  display: flex;
+  justify-content: center;
+}
+
+.center-v {
+  display: flex;
+  align-items: center;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.column {
+  width: 80%;
+}
+
+.column-60 {
+  width: 60%;
+}
+
+.column-40 {
+  width: 40%;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.section-title {
+  margin-top: 72px;
+  margin-bottom: 48px;
+}
+
+.margin-top {
+  margin-top: 16px;
+}
+
+/* --------------------------------------------------------- Text Styling */
+.main-font {
+  font-family: 'Days One', sans-serif;
+}
+
+.text-font {
+  font-family: sans-serif;
+}
+
+.light {
+  color: snow;
+}
+
+.font-size-medium {
+  font-size: 24px;
+}
+
+.font-size-title {
+  font-size: 8vw;
+}
+
+.font-size-section-title {
+  font-size: 5vw;
+}
+
+.orange {
+  color: rgb(243, 153, 34);
+}
+
+/* --------------------------------------------------------- Screen Resize Styling */
+
+@media only screen and (max-width: 1350px) {
+  .header-content {
+    display: flex;
+    justify-content: center;
+  }
+
+  .header-nav-bar {
+    margin-left: 6px;
+    margin-right: 6px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+
+  a {
+    text-align: center;
+  }
+
+  .banner {
+    padding-top: 200px;
+  }
+
+  .section-title {
+    margin-top: 128px;
+  }
+
+  .banner-image {
+    border-radius: 12px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .section-title {
+    margin-top: 160px;
+  }
+
+  .banner-image {
+    border-radius: 8px;
+  }
+
+  .font-size-medium {
+    font-size: 2.5vw;
+  }
+
+  .questionnaire-link {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .nav-element {
+    font-size: 12px;
+    margin-left: 12px;
+  }
+
+  .title-icon {
+    height: 40px;
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: center;
+  }
+
+  .header-nav-bar {
+    margin-left: 6px;
+    margin-right: 6px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  a {
+    text-align: center;
+  }
+
+  .banner {
+    padding-top: 100px;
+    padding-bottom: 40px;
+  }
+
+  .column {
+    width: 100%;
+  }
+
+  .section-title {
+    margin-top: 100px;
+    margin-left: 12px;
+  }
+
+  .column-60 {
+    width: 100%;
+  }
+
+  .column-40 {
+    width: 100%;
+  }
+
+  .banner-image {
+    border-radius: 0;
+  }
+
+  .attribute-container {
+    border-radius: 0;
+  }
+
+  .icon {
+    margin-right: 8px;
+  }
+
+  .text-block {
+    margin-left: 12px;
+  }
+
+  .font-size-medium {
+    font-size: 18px;
+  }
+
+  .bedrooms {
+    width: 50%;
+  }
+
+  .bedroom-attributes {
+    width: 50%;
+  }
 }
 
 #map-container {
-  margin-top: 30px;
+  /* margin-top: 30px;
   position: relative;
   font-family: "Roboto", sans-serif;
-  box-sizing: border-box;
+  box-sizing: border-box; */
 }
 
 #map {
@@ -18,271 +398,8 @@ body {
   top: 0;
   right: 0;
   bottom: 0; */
-  width: 300px;
-  height: 300px;
+
+  /* width: 300px; */
+  height: 100%;
   max-width: 100%;
-}
-
-#locations-panel {
-  position: absolute;
-  left: 0;
-  width: 22em;
-  top: 0;
-  bottom: 0;
-  overflow-y: auto;
-  background: white;
-  padding: 0.5em;
-  box-sizing: border-box;
-}
-
-/* @media only screen and (max-width: 876px) {
-  #map {
-    bottom: 50%;
-  }
-
-  #locations-panel {
-    top: 50%;
-    right: 0;
-    width: unset;
-  }
-} */
-
-#locations-panel-list .section-name {
-  font-weight: 500;
-  font-size: 0.9em;
-  margin: 1.8em 0 1em 1.5em;
-}
-
-#locations-panel-list .location-result {
-  position: relative;
-  padding: 0.8em 3.5em 0.8em 1.4em;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-  cursor: pointer;
-}
-
-#locations-panel-list .location-result:first-of-type {
-  border-top: 1px solid rgba(0, 0, 0, 0.12);
-}
-
-#locations-panel-list .location-result:last-of-type {
-  border-bottom: none;
-}
-
-#locations-panel-list .location-result.selected {
-  outline: 2px solid #4285f4;
-}
-
-#locations-panel-list button.select-location {
-  margin-bottom: 0.6em;
-}
-
-#locations-panel-list .location-result h2.name {
-  font-size: 1em;
-  font-weight: 500;
-  margin: 0;
-}
-
-#locations-panel-list .location-result .address {
-  font-size: 0.9em;
-  margin-bottom: 0.5em;
-}
-
-#location-results-list {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.row {
-  width: 100%;
-}
-
-.headerBar {
-  width: 100%;
-  background-color: rgb(243, 153, 34);
-}
-
-.contents {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-.content {
-  display: flex;
-
-  /* justify-content: center; */
-  align-items: center;
-}
-
-.column {
-  width: 80%;
-}
-
-.flexLeft {
-  display: flex;
-  justify-content: left;
-
-  /* align-items: center; */
-}
-
-.flexRight {
-  display: flex;
-}
-
-.titleText {
-  color: white;
-  font-family: sans-serif;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  font-size: 16px;
-}
-
-.active {
-  background-color: rgb(243, 153, 34);
-}
-
-.tab {
-  color: white;
-  font-family: sans-serif;
-  font-size: 13px;
-  padding-top: 13px;
-  padding-right: 8px;
-  padding-left: 8px;
-  margin-left: 8px;
-}
-
-.container {
-  margin: 20px;
-}
-
-.bedroom-title {
-  font-size: 24px;
-}
-
-.bedroom-container {
-  /* display: flex;
-  flex-wrap: wrap; */
-}
-
-.button {
-  border: none;
-  color: darkgray;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  border-radius: 8px;
-  width: 200px;
-}
-
-.available {
-  color: black;
-  cursor: pointer;
-}
-
-.flexAndWrap {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.flexInline {
-  display: inline-flex;
-  flex-wrap: wrap;
-}
-
-.center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.sansSerif {
-  font-family: sans-serif;
-}
-
-.font-weight-medium {
-  font-size: 20px;
-}
-
-.font-weight-large {
-  font-size: 28px;
-}
-
-.button-container {
-  margin: 10px;
-}
-
-.houseImage {
-  margin-top: 68px;
-  height: 500px;
-  border-radius: 12px;
-}
-
-.image-container {
-
-}
-
-.amenitie-container {
-  margin: 10px;
-}
-
-.amenitie-description {
-  margin-top: 4px;
-}
-
-.icon {
-  height: 64px;
-}
-
-.amenities-text-container {
-  margin-left: 10px;
-  background-color: rgb(239, 239, 239);
-  padding-left: 18px;
-  padding-right: 18px;
-  border-radius: 8px;
-  max-width: 70%;
-}
-
-.inner-text-container {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.column-half {
-  width: 50%;
-  min-width: 600px;
-}
-
-.column-40 {
-  width: 40%;
-}
-
-.maxWidth {
-  max-width: 100%;
-}
-
-.houseImg {
-  height: 300px;
-}
-
-.textSpace {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.column-50 {
-  max-width: 50%;
-}
-
-.marginLeft {
-  margin-left: 20px;
-}
-
-.marginTopBottom {
-  margin-top: 20px;
-  margin-bottom: 20px;
 }
