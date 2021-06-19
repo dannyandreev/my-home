@@ -82,23 +82,42 @@ a:active {
   padding-bottom: 64px;
 }
 
-.amenitie-container {
-  background-color: rgb(243, 153, 34);
-  border-radius: 12px;
-  padding: 8px;
-  margin-bottom: 16px;
-}
-
-.amenities-text-container {
-  margin-left: 16px;
-}
-
 /* --------------------------------------------------------- Available Bedrooms Styling */
 
 .available-bedrooms {
   width: 100%;
-  height: 1000px;
   background-color: rgb(95, 153, 88);
+  padding-bottom: 64px;
+}
+
+.bedrooms {
+  margin-right: 16px;
+}
+
+.hidden {
+  background-color: rgb(243, 205, 156) !important;
+}
+
+.unavailable {
+  background-color: rgb(145, 145, 145) !important;
+}
+
+.display {
+  /* background-color: rgb(145, 145, 145) !important; */
+}
+
+.button {
+  cursor: pointer;
+}
+
+.hidden:hover {
+  background-color: rgb(230, 138, 18) !important;
+}
+
+.carouselImage {
+  height: 300px;
+  margin: 8px;
+  margin-bottom: 4px;
 }
 
 /* --------------------------------------------------------- House Rules Styling */
@@ -140,6 +159,23 @@ a:active {
 
 .icon {
   width: 64px;
+  margin-right: 8px;
+}
+
+.attribute-container {
+  background-color: rgb(243, 153, 34);
+  border-radius: 12px;
+  padding: 8px;
+  margin-bottom: 16px;
+}
+
+.attribute-text-container {
+  margin-left: 16px;
+}
+
+.attribute-title {
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 /* --------------------------------------------------------- Allignment Styling */
@@ -324,7 +360,7 @@ a:active {
     border-radius: 0;
   }
 
-  .amenitie-container {
+  .attribute-container {
     border-radius: 0;
   }
 
@@ -334,6 +370,18 @@ a:active {
 
   .text-block {
     margin-left: 12px;
+  }
+
+  .font-size-medium {
+    font-size: 18px;
+  }
+
+  .bedrooms {
+    width: 50%;
+  }
+
+  .bedroom-attributes {
+    width: 50%;
   }
 }
 
