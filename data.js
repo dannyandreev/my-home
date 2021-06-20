@@ -211,7 +211,7 @@ var house = {
         "furniture": {"title": "Furniture", "description": "This room comes furnishes with a table, chair, and bed.", "imgURL": "./images/icons/icons8-table-64.png"},
         "windows":   {"title": "Windows", "description": "One large NW window and one NE window.", "imgURL": "./images/icons/icons8-closed-window-64.png"}
       },
-      "images": ["./images/bedrooms/bedroom-7/", "IMG_1018.jpg", "Jordan rental BR7 (3).jpg", "Jordan rental BR7 (6).jpg"]
+      "images": ["./images/bedrooms/bedroom-7/", "IMG_1018.jpg", "JordanRentalBR7(3).jpg", "Jordan rental BR7 (6).jpg"]
     }
   },
 }

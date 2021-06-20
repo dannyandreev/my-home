@@ -56,6 +56,7 @@ function createBedrooms(){
   for(bedroom in bedrooms) {
     if(bedrooms[bedroom].status === "display") {
       createBedroomAttributes(bedroom)
+      createCarousel(bedroom)
     }
   }
 }
